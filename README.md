@@ -1,4 +1,4 @@
-##Bienvenido al backend de DSFAIDER
+## Bienvenido al backend de DSFAIDER
 
 El Backend de DSFAIDER está construido bajo el framework ExpressJS y el ORM TypeORM
 
@@ -10,8 +10,8 @@ Consulta documentación aquí
 El proyecto por el momento es pequeño y con una arquitectura simple basada en capas.
 Un poco parecido a lo que podría ser una arquitectura MVC para no complicar las cosas.
 Pero para mantener el orden y tener una experiencia de desarrollo ordenada apliqué algunos conceptos que te explicaré mas adelante.
-
-###Estructura del proyecto.
+ 
+### Estructura del proyecto.
 
 En la raíz del proyecto te encontrarás con los siguientes archivos y directorios.
 
@@ -41,7 +41,7 @@ En la raíz del proyecto te encontrarás con los siguientes archivos y directori
 - tsconfig.json:
     Configuraciones de Typescript (no mover a menos que sea realmente necesario.)
 
-###Módulos
+### Módulos
 
 Dentro de cada módulo podras encontrar
 - uno o más controladores
@@ -52,7 +52,7 @@ Dentro de cada módulo podras encontrar
 
 Puede que encuentres más archivos dentro de los módulos pero principalmente estos archivos y directorios son el pan de cada día
 
-####Casos de uso (Use cases)
+#### Casos de uso (Use cases)
 
 En estos archivos está contenida la lógica de cada acción del sistema.
 Se puede decir que por cada acción realizable por el usuario hay un archivo que contiene la lógica necesaria para dicha acción
@@ -66,19 +66,19 @@ En estos archivos se orquesta toda la lógica, y se hace uso de lo que se necesi
 Por ejemplo, si al crear una rifa se debe mandar un email, aquí debe estar plasmada toda esa lógica.
 Son el corazón de la aplicación en terminos de acciones.
 
-####Repositorios (Repositories).
+#### Repositorios (Repositories).
 
 En los repositorios está la lógica de acceso a datos.
 Nuestros casos de uso contienen toda la lógica del negocio, por lo que ensuciar o hacer más grande esos archivos con algo tan ajeno con lógica de ¿como guardar un registro en la tabla usuarios de la base de datos de mysql?, es innecesario y solo crearía código más dificil de leer, archivos más grandes y una peor experiencia.
 Así que toda la lógica de acceso a base de datos y persistencia está en los repositorios, para que el caso de uso pueda utilizarlos sin preocuparse de la lógica que hay detras.
 
-####Dtos
+#### Dtos
 
 Los dtos son simplemente archivos que contienen estructuras de datos que se usan para tipar objestos en nuestra aplicación. Por ejemplo, si un caso de uso necesita la información de una rifa para actualizarla, el caso de uso recibirá un objeto (dto) como parámetro, es decir. Un objeto que contiene todas las propiedades necesarias para realizar la actualización. Y es el DTO el que indica que datos y de que tipo se necesitan para realizar dicha acción.
 
 Por eso se le conoce como DTO (Data Transfer Object)
 Simplemente un objeto para transferir información entre componentes del sistema.
 
-####Controladores.
+#### Controladores.
 
 En el controlador se llaman a los casos de usos y se devuelve una respuesta al cliente.
